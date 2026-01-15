@@ -34,6 +34,8 @@ Aplikasi web Todo List untuk manajemen tugas pribadi dengan sistem autentikasi p
 - Secure session handling
 
 ## 📁 Struktur Folder
+
+```text
 todo-app/
 ├── config/database.php
 ├── includes/
@@ -46,6 +48,8 @@ todo-app/
 ├── tasks.php
 ├── edit-task.php
 └── README.md
+
+```
 
 
 ## 🗃️ Database Schema
