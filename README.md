@@ -1,4 +1,3 @@
-<img width="1162" height="472" alt="image" src="https://github.com/user-attachments/assets/a149c156-f65c-4821-bea1-9c1f25815d97" /># Aplikasi Todo List - Back-End Web Development
 
 ## 📋 Deskripsi Singkat
 Aplikasi web Todo List adalah aplikasi manajemen tugas sederhana yang memungkinkan pengguna mengelola daftar tugas pribadi secara terorganisir. Pengguna dapat melakukan registrasi dan login untuk mengakses fitur CRUD (Create, Read, Update, Delete) pada task. Aplikasi ini dilengkapi dengan sistem autentikasi dan manajemen sesi untuk menjaga keamanan data pengguna, serta dikembangkan sebagai penerapan dasar Back-End Web Development menggunakan PHP Native dan MySQL.
@@ -393,3 +392,4 @@ Solution: Set utf8 encoding di PDO connection
 
 Issue: Tidak ada feedback setelah delete task
 Solution: Tambah redirect ke tasks.php setelah delet
+
