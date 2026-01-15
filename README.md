@@ -1,33 +1,45 @@
 # Aplikasi Todo List - Back-End Web Development
 
 ## 📋 Deskripsi Singkat
-Aplikasi web Todo List untuk manajemen tugas pribadi dengan sistem autentikasi pengguna dan operasi CRUD.
+Aplikasi web Todo List adalah aplikasi manajemen tugas sederhana yang memungkinkan pengguna mengelola daftar tugas pribadi secara terorganisir. Pengguna dapat melakukan registrasi dan login untuk mengakses fitur CRUD (Create, Read, Update, Delete) pada task. Aplikasi ini dilengkapi dengan sistem autentikasi dan manajemen sesi untuk menjaga keamanan data pengguna, serta dikembangkan sebagai penerapan dasar Back-End Web Development menggunakan PHP Native dan MySQL.
 
 ## 👥 Daftar Anggota
 | Nama | NIM | Username GitHub | Peran/Tugas |
 |------|-----|-----------------|-------------|
 | Raditya | [240030084] | [wiragunaraditya9-coder] | BackEnd Developer |
-| GusAlit | [240030093] | [gusalit054-eng] | FrontEnd Developer |
-| Dewa | [240030099] | [dwastriaa-boop] | Deployment & Testing |
+| GusAlit | [240030093] | [gusalit054-eng] | index.php, header.php, dan footer.php merupakan bagian utama tampilan aplikasi, di mana index.php menampilkan halaman utama, mengecek session login, dan mengarahkan pengguna ke dashboard serta menyediakan navigasi login dan register, header.php berfungsi sebagai template atas yang memuat Bootstrap 5, Bootstrap Icons, serta pengaturan layout dan style global, sedangkan footer.php menjadi template bawah yang memuat JavaScript Bootstrap dan fitur auto close notifikasi.  |
+| Dewa | [240030099] | [dwastriaa-boop] | Deployment & Testing bertugas menyiapkan lingkungan aplikasi, melakukan konfigurasi server dan database, serta menguji seluruh fitur aplikasi termasuk autentikasi, CRUD task, dan keamanan dasar untuk memastikan aplikasi berjalan dengan baik. |
 
 ## 🛠 Lingkungan Pengembangan
-- **Server:** XAMPP (Apache, PHP 8.2, MySQL)
-- **Database:** MySQL
-- **Backend:** PHP Native
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap 5
-- **Tools:** VS Code, phpMyAdmin, Git, Ai   
+### Server
+* XAMPP (Apache, PHP 8.2, MySQL)
+### Database
+* MySQL
+### Bahasa Pemrograman (Backend)
+* PHP Native
+### Bahasa Pemrograman (Frontend)
+* HTML
+* CSS
+* JavaScript
+* Bootstrap 5
+### Tools & Development Environment
+* Visual Studio Code - Code editor
+* phpMyAdmin - Database management tool
+* Git & GitHub - Version control system
+* Google Chrome DevTools - Browser debugging   
 
 ## 🚀 Fitur Utama
 ### Authentication System
-- Registrasi, Login, Logout
-- Password hashing dengan `password_hash()`
-- Session management dengan timeout
+- Registrasi akun pengguna
+- Login dan logout
+- Password hashing menggunakan `password_hash()`
+- Manajemen session dengan batas waktu 30 menit
 
 ### Task Management (CRUD)
-- Create: Tambah task baru
-- Read: Lihat semua tasks
-- Update: Edit task & ubah status
-- Delete: Hapus task
+- Create: Menambahkan task baru
+- Read: Menampilkan daftar task milik pengguna
+- Update: Mengedit task dan status (pending / completed)
+- Delete: Menghapus task
 
 ### Session Management
 - Session timeout 30 menit
@@ -37,17 +49,28 @@ Aplikasi web Todo List untuk manajemen tugas pribadi dengan sistem autentikasi p
 
 ```text
 todo-app/
-├── config/database.php
+├── auth/
+│   ├── login.php        # Halaman login pengguna
+│   ├── register.php     # Halaman registrasi pengguna
+│   └── logout.php       # Proses logout
+│
+├── config/
+│   └── database.php     # Konfigurasi koneksi database
+│
 ├── includes/
-├── index.php
-├── register.php
-├── login.php
-├── logout.php
-├── dashboard.php
-├── add-task.php
-├── tasks.php
-├── edit-task.php
-└── README.md
+│   ├── header.php       # Template header & navbar
+│   ├── footer.php       # Template footer & JavaScript
+│   └── auth-check.php   # Pengecekan session login
+│
+├── tasks/
+│   ├── add-task.php     # Menambahkan task baru
+│   ├── edit-task.php    # Mengedit task
+│   ├── delete-task.php  # Menghapus task
+│   └── tasks.php        # Menampilkan daftar task
+│
+├── index.php            # Halaman utama / landing page
+├── dashboard.php        # Halaman utama setelah login
+└── README.md            # Dokumentasi project
 
 ```
 
@@ -73,28 +96,32 @@ CREATE TABLE tasks (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+```
 
-## 📦 Cara Instalasi
-1. Install XAMPP
+## 🗃️ Database Schema
+Database terdiri dari dua tabel utama yaitu `users` dan `tasks`, yang saling terhubung menggunakan relasi foreign key untuk memastikan setiap task dimiliki oleh satu user.
 
-2. Taruh folder di htdocs
+## 📦 Cara Instalasi dan Menjalankan Aplikasi
+1. Install dan jalankan XAMPP
 
-3. Buat database todo_app di phpMyAdmin
+2. Letakkan folder project di dalam `htdocs`
 
-4. Jalankan query SQL di atas
+3. Buat database `todo_app` melalui phpMyAdmin
 
-5. Akses http://localhost/todo-app
+4. Jalankan query SQL untuk membuat tabel
 
-🔒 Keamanan
-- Password hashing dengan password_hash()
+5. Akses aplikasi melalui browser di http://localhost/todo-app
 
-- Prepared statements untuk cegah SQL injection
+## 🔒 Keamanan
+- Password disimpan menggunakan hashing
 
-- htmlspecialchars() untuk cegah XSS
+- Prepared statements untuk mencegah SQL Injection
+
+- `htmlspecialchars()` untuk mencegah XSS
 
 - Session timeout 30 menit
 
-📊 Testing
+## 📊 Testing
 - Manual testing semua fitur CRUD
 
 - Security testing (SQL injection, XSS)
