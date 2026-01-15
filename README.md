@@ -5,9 +5,9 @@ Aplikasi web Todo List adalah aplikasi manajemen tugas sederhana yang memungkink
 ## 👥 Daftar Anggota
 | Nama | NIM | Username GitHub | Peran/Tugas |
 |------|-----|-----------------|-------------|
-| Raditya | [240030084] | [wiragunaraditya9-coder] |Backend Developer - Bertanggung jawab atas desain dan implementasi sistem database MySQL dengan relasi one-to-many, pengembangan sistem autentikasi pengguna (register/login/logout) dengan password hashing menggunakan password_hash(), session management dengan timeout otomatis, implementasi operasi CRUD untuk tasks dengan prepared statements, validasi input server-side, sanitasi data untuk mencegah SQL injection dan XSS, serta pengembangan dashboard dengan statistik tasks.|
-| GusAlit | [240030093] | [gusalit054-eng] | index.php, header.php, dan footer.php merupakan bagian utama tampilan aplikasi, di mana index.php menampilkan halaman utama, mengecek session login, dan mengarahkan pengguna ke dashboard serta menyediakan navigasi login dan register, header.php berfungsi sebagai template atas yang memuat Bootstrap 5, Bootstrap Icons, serta pengaturan layout dan style global, sedangkan footer.php menjadi template bawah yang memuat JavaScript Bootstrap dan fitur auto close notifikasi.  |
-| Dewa | [240030099] | [dwastriaa-boop] | Deployment & Testing bertugas menyiapkan lingkungan aplikasi, melakukan konfigurasi server dan database, serta menguji seluruh fitur aplikasi termasuk autentikasi, CRUD task, dan keamanan dasar untuk memastikan aplikasi berjalan dengan baik. |
+| Raditya | [240030084] | [wiragunaraditya9-coder] |Backend Developer – Bertanggung jawab atas desain dan implementasi database MySQL (relasi one-to-many), pengembangan sistem autentikasi (register, login, logout), password hashing `(password_hash())`, session management dengan timeout, implementasi CRUD task menggunakan prepared statements, validasi dan sanitasi input untuk mencegah SQL Injection dan XSS, serta pengembangan dashboard dan statistik task.|
+| GusAlit | [240030093] | [gusalit054-eng] | Frontend Developer – Mengembangkan tampilan aplikasi melalui `index.php`, `header.php`, dan `footer.php`. `index.php` berfungsi sebagai landing page dengan pengecekan session dan navigasi login/register, `header.php` sebagai template atas yang memuat Bootstrap 5 dan Bootstrap Icons, serta `footer.php` sebagai template bawah yang memuat JavaScript Bootstrap dan fitur auto-close notifikasi. |
+| Dewa | [240030099] | [dwastriaa-boop] | Deployment & Testing – bertugas menyiapkan lingkungan aplikasi, melakukan konfigurasi server dan database, serta menguji seluruh fitur aplikasi termasuk autentikasi, CRUD task, dan keamanan dasar untuk memastikan aplikasi berjalan dengan baik. |
 
 ## 🛠 Lingkungan Pengembangan
 ### Server
@@ -29,31 +29,31 @@ Aplikasi web Todo List adalah aplikasi manajemen tugas sederhana yang memungkink
 * Google Chrome DevTools - Browser debugging
   
 ## Hasil Pengembangan 
-1. Autentikasi Pengguna
-- Register: Form pendaftaran pengguna baru dengan validasi username unik, email valid, dan password hashing menggunakan password_hash()
-- Login: Autentikasi menggunakan username atau email dengan verifikasi password menggunakan password_verify()
+## 1. Autentikasi Pengguna
+- Register: Form pendaftaran pengguna baru dengan validasi username unik, email valid, dan password hashing menggunakan `password_hash()`
+- Login: Autentikasi menggunakan username atau email dengan verifikasi password menggunakan `password_verify()`
 - Logout: Menghapus semua session data dan redirect ke halaman login dengan pesan konfirmasi
 - Session Management: Session timeout otomatis setelah 30 menit tidak aktif dengan validasi $_SESSION['login_time']
 
-2. Manajemen Tasks (CRUD Operations)
+## 2. Manajemen Task (CRUD Operations)
 - Tambah Task: Form input dengan field judul (required), deskripsi (optional), dan deadline (optional)
 - Lihat Tasks: Menampilkan daftar tasks dalam format tabel dengan sorting berdasarkan status (pending first) dan deadline
 - Edit Task: Form edit untuk mengubah judul, deskripsi, deadline, dan status task
 - Hapus Task: Konfirmasi delete dengan validasi kepemilikan data (user hanya bisa hapus task miliknya)
 - Toggle Status: Fitur toggle cepat untuk mengubah status task antara pending dan completed
 
-3. Dashboard & Statistik
+## 3. Dashboard & Statistik
 - Statistics Cards: Menampilkan total tasks, tasks pending, dan tasks completed
 - Task Overview: Ringkasan jumlah tasks yang dimiliki pengguna
 - Quick Actions: Shortcut untuk menambah task baru dan melihat daftar tasks lengkap
 
-4. Manajemen Session & Keamanan
+## 4. Manajemen Session & Keamanan
 - Session Validation: Cek session di setiap halaman yang membutuhkan autentikasi
 - Ownership Validation: Validasi kepemilikan data sebelum operasi edit/delete
 - Auto Logout: Session destruction setelah 30 menit inaktivitas
 - Route Protection: Redirect ke login jika mengakses halaman terproteksi tanpa autentikasi
 
-5. Fitur Tambahan
+## 5. Fitur Tambahan
 - Deadline Visualization: Badge warna berdasarkan status deadline (normal, mendekati, terlambat)
 - Responsive Design: Interface yang kompatibel dengan desktop dan mobile
 - Real-time Status Update: Toggle status tanpa reload halaman
@@ -161,29 +161,29 @@ CREATE TABLE tasks (
 ## 🗃️ Database Schema
 Database terdiri dari dua tabel utama yaitu `users` dan `tasks`, yang saling terhubung menggunakan relasi foreign key untuk memastikan setiap task dimiliki oleh satu user.
 
-📋 Cara Instalasi dan Menjalankan Aplikasi
-###Prerequisites
+## 📋 Cara Instalasi dan Menjalankan Aplikasi
+## Prerequisites
 - XAMPP/WAMP/LAMP stack (PHP 7.4+ dan MySQL 5.7+)
 - Web browser modern (Chrome, Firefox, Edge)
 - Git (opsional, untuk cloning repository)
 
-###Langkah-langkah Instalasi
+## 📦 Langkah-langkah Instalasi
 1. Install XAMPP
-
 - Download XAMPP dari https://www.apachefriends.org
 - Install dengan konfigurasi default
 - Pastikan Apache dan MySQL berjalan di XAMPP Control Panel
+
 2. Setup Project Folder
 - Clone atau download source code project
 - Letakkan folder project di dalam direktori:
-
 ```text
 C:\xampp\htdocs\todo-app\  (Windows)
 /opt/lampp/htdocs/todo-app/ (Linux)
 ```
+
 3. Konfigurasi Database
 - Buka phpMyAdmin di browser: http://localhost/phpmyadmin
-- Buat database baru dengan nama todo_app
+- Buat database baru dengan nama `todo_app`
 - Pilih database tersebut dan eksekusi SQL berikut:
 
 ```sql
@@ -220,18 +220,18 @@ private $password = "";        # Sesuaikan jika perlu
 
 - Pastikan Apache dan MySQL berjalan di XAMPP
 - Buka browser dan akses: http://localhost/todo-app/
-- Aplikasi siap digunakan!
+- Aplikasi siap digunakan
 
-Testing Instalasi
-1. Buka http://localhost/todo-app/ - harus tampil halaman landing
+## Testing Instalasi
+1. Buka http://localhost/todo-app/  (harus tampil halaman landing)
 2. Klik "Daftar" untuk registrasi akun baru
 3. Login dengan akun yang dibuat
 4. Coba tambah task pertama Anda
 
-🔒 Keamanan yang Diimplementasikan
+## 🔒 Keamanan yang Diimplementasikan
 1. Password Security
-- Password Hashing: Menggunakan password_hash() dengan algoritma PASSWORD_DEFAULT (bcrypt)
-- Password Verification: Menggunakan password_verify() untuk autentikasi
+- Password Hashing: Menggunakan `password_hash()` dengan algoritma PASSWORD_DEFAULT (bcrypt)
+- Password Verification: Menggunakan `password_verify()` untuk autentikasi
 - Salt Automatic: Salt di-generate otomatis oleh PHP, tidak perlu manual salt
 - Strong Algorithm: Bcrypt dengan cost factor default (saat ini 10)
 
@@ -265,7 +265,7 @@ Testing Instalasi
 - Email Format: Validasi format email pada registrasi
 - Data Trimming: trim() untuk menghapus whitespace yang tidak perlu
 
-📊 Testing yang Dilakukan
+## 📊 Testing yang Dilakukan
 1. Functional Testing
 - User Registration
 Registrasi dengan data valid
@@ -281,7 +281,7 @@ Login dengan username/email tidak terdaftar
 Logout dan verifikasi session destruction
 Access halaman terproteksi tanpa login (redirect expected)
 
--Task Management (CRUD)
+- Task Management (CRUD)
 Create task dengan semua field
 Create task hanya dengan judul (required field)
 Read tasks - tampilkan hanya tasks milik user
@@ -290,12 +290,12 @@ Delete task dengan konfirmasi
 Toggle status (pending ↔ completed)
 Filter tasks by status (pending first)
 
--Session Management
+- Session Management
 Session persistance selama aktif
 Auto logout setelah 30 menit inaktivitas
 Session tidak accessible setelah logout
 
-Multipe browser tabs handling
+- Multipe browser tabs handling
 
 2. Security Testing
 
@@ -325,17 +325,17 @@ Session hijacking simulation
 
 3. User Flow Testing
    
-Happy Path Scenario
+- Happy Path Scenario
 Register → Login → Dashboard → Add Task → View Tasks → Edit Task → Toggle Status → Delete Task → Logout
 Waktu eksekusi: < 2 menit untuk complete flow
 
-Error Handling Scenario
+- Error Handling Scenario
 Login dengan wrong credentials → proper error message
 Add task tanpa judul → validation error
 Edit non-existent task → redirect to tasks list
 Access protected page without login → redirect to login
 
-Edge Cases
+- Edge Cases
 Task dengan deadline tanggal lampau
 Task dengan description sangat panjang
 Special characters dalam task title
@@ -357,14 +357,15 @@ COUNT queries untuk statistics cepat
 Index utilization verified
 
 5. Security Audit Results
-   
-- Vulnerability | Status | Keterangan
-SQL Injection | ✅ PASS | Protected by PDO prepared statements
-XSS Attacks | ✅ PASS | Protected by htmlspecialchars() output encoding
-Session Hijacking | ✅ PASS | Session timeout and validation implemented
-CSRF Attacks | ⚠️ PARTIAL | Basic protection, bisa ditambah token
-Brute Force Login | ⚠️ PARTIAL | No rate limiting implemented
-Direct Object Reference | ✅ PASS | Ownership validation implemented
+
+| Vulnerability| Status | Keterangan |
+|----------|---------|------|
+| SQL Injection | ✅ PASS | Dilindungi dengan PDO prepared statements dan parameter binding |
+| XSS (Cross-Site Scripting) | ✅ PASS | Output encoding menggunakan `htmlspecialchars()` | 
+| Session Hijacking | ✅ PASS | Session timeout dan validasi session diimplementasikan | 
+| CSRF Attacks | ⚠️ PARTIAL | Proteksi dasar tersedia, disarankan menambahkan CSRF token |
+| Brute Force Login | ⚠️ PARTIAL | Belum ada rate limiting pada proses login |
+| Insecure Direct Object Reference (IDOR) | ✅ PASS | Validasi kepemilikan data (ownership validation) diterapkan |
 
 7. Test Data Sample
 ```text
@@ -384,12 +385,11 @@ Sample Tasks:
   Status: Completed
   ```
 8. Issues Found & Resolved
-Issue: Session tidak konsisten di beberapa halaman
-Solution: Tambah session_start() di setiap file PHP
+- Issue: Session tidak konsisten di beberapa halaman
+- Solution: Tambah session_start() di setiap file PHP
 
-Issue: SQL error saat input special characters
-Solution: Set utf8 encoding di PDO connection
+- Issue: SQL error saat input special characters
+- Solution: Set utf8 encoding di PDO connection
 
-Issue: Tidak ada feedback setelah delete task
-Solution: Tambah redirect ke tasks.php setelah delet
-
+- Issue: Tidak ada feedback setelah delete task
+- Solution: Tambah redirect ke tasks.php setelah delet
